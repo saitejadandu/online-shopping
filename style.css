@@ -1,0 +1,217 @@
+/* General */
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0; padding: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #333;
+  min-height: 100vh;
+}
+
+header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  color: #333;
+  padding: 1rem;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.logout-btn {
+  background: #ff4757;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.logout-btn:hover {
+  background: #ff3742;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  padding: 10px 20px;
+  border: 2px solid #667eea;
+  background: transparent;
+  color: #667eea;
+  cursor: pointer;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.filter-btn:hover, .filter-btn.active {
+  background: #667eea;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 18px;
+  color: white;
+}
+
+/* Product grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.card h3 {
+  margin: 15px 0 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.card p {
+  margin: 0;
+  font-weight: 700;
+  color: #667eea;
+  font-size: 16px;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center; align-items: center;
+  z-index: 1000;
+}
+.modal-content {
+  background: white; padding: 0; border-radius: 20px;
+  max-width: 500px; width: 90%;
+  position: relative;
+  overflow: hidden;
+  animation: modalSlide 0.3s ease;
+}
+@keyframes modalSlide {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.modal-body {
+  display: flex;
+  flex-direction: column;
+}
+.modal-content img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+.modal-info {
+  padding: 25px;
+  text-align: center;
+}
+.modal-info h2 {
+  margin: 0 0 10px;
+  font-size: 24px;
+}
+.modal-info .price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #667eea;
+  margin: 10px 0;
+}
+.modal-info .description {
+  color: #666;
+  margin: 15px 0 20px;
+}
+.add-to-cart {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+.add-to-cart:hover {
+  background: #5a67d8;
+  transform: translateY(-2px);
+}
+.close {
+  position: absolute; top: 15px; right: 20px;
+  font-size: 28px; cursor: pointer;
+  color: white;
+  z-index: 10;
+  background: rgba(0,0,0,0.5);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Login page */
+.login-page {
+  display: flex; justify-content: center; align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+.login-container {
+  background: white; padding: 30px; border-radius: 10px;
+  width: 300px; text-align: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+.login-container input {
+  width: 100%; padding: 10px; margin: 10px 0;
+  border-radius: 5px; border: 1px solid #ccc;
+}
+.login-container button {
+  width: 100%; padding: 10px;
+  background: #0077cc; color: white;
+  border: none; border-radius: 5px;
+  cursor: pointer;
+}
+.login-container button:hover {
+  background: #005fa3;
+}
+.note {
+  margin-top: 10px; font-size: 0.9em; color: gray;
+}
