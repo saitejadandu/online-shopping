@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="E-commerce product showcase with filtering and modal views">
+  <title>Product Showcase - E-Commerce Store</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>🛍️ Product Showcase</h1>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+    <div class="filters">
+      <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
+      <button class="filter-btn" onclick="filterProducts('fashion')">👔 Fashion</button>
+      <button class="filter-btn" onclick="filterProducts('home')">🏠 Home</button>
+      <button class="filter-btn" onclick="filterProducts('lifestyle')">🎒 Lifestyle</button>
+    </div>
+  </header>
+
+  <div class="loading" id="loading">Loading products...</div>
+  <main id="productGrid" class="grid"></main>
+
+  <!-- Modal -->
+  <div id="productModal" class="modal" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div class="modal-body">
+        <img id="modalImg" src="" alt="" loading="lazy">
+        <div class="modal-info">
+          <h2 id="modalTitle"></h2>
+          <p id="modalPrice" class="price"></p>
+          <p id="modalDesc" class="description"></p>
+          <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
